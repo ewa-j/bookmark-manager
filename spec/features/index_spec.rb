@@ -1,6 +1,6 @@
 feature "index" do
-  scenario "expect page to show Hello World" do
+  scenario "expect page to show Bookmark Manager" do
     visit("/")
-    expect(page).to have_content "Hello World!"
+    expect(page).to have_content "Bookmark Manager"
   end
 end
