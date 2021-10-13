@@ -1,13 +1,16 @@
 require "pg"
 
 feature "viewing bookmarks" do
-  scenario "user can see all added bookmarks" do
-    connection = PG.connect(dbname: "bookmark_manager_test")
+  scenario "user can see all added bookmarks after visiting /bookmarks" do
+    # connection = PG.connect(dbname: "bookmark_manager_test")
 
-    # adding the test data
-    connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.codecademy.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(2, 'https://www.theodinproject.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(3, 'https://www.udemy.com');")
+    # # adding the test data
+    # connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.codecademy.com');")
+    # connection.exec("INSERT INTO bookmarks VALUES(2, 'https://www.theodinproject.com');")
+    # connection.exec("INSERT INTO bookmarks VALUES(3, 'https://www.udemy.com');")
+    Bookmark.create(url: "http://www.codecademy.com")
+    Bookmark.create(url: "https://www.theodinproject.com")
+    Bookmark.create(url: "https://www.udemy.com")
 
     visit("/bookmarks")
 
