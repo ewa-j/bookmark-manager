@@ -2,7 +2,14 @@ require "bookmark"
 
 describe Bookmark do
   describe ".view" do
-    it "returns all bookmarks" do
+    it "returns list of all bookmarks" do
+      connection = PG.connect(dbname: "bookmark_manager_test")
+
+      # adding the test data
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.codecademy.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.theodinproject.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.udemy.com');")
+
       bookmarks = Bookmark.view
 
       expect(bookmarks).to include("http://www.codecademy.com")

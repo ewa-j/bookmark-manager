@@ -94,8 +94,9 @@ PLATFORMS
   arm64-darwin-20
 
 DEPENDENCIES
-  capybara
+  capybara (>= 2.2.0.beta)
   pg
+  rack-test
   rspec
   rubocop (= 1.20)
   simplecov
